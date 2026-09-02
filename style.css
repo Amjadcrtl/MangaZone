@@ -1,0 +1,1472 @@
+/* =========================================================
+   MANGAZONE — STYLE PRINCIPAL
+   Thème : Blanc + Violet
+   ========================================================= */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f5ff;
+    color: #181522;
+    min-height: 100vh;
+}
+
+
+/* ================= VARIABLES ================= */
+
+:root {
+    --violet: #7c3aed;
+    --violet-dark: #5b21b6;
+    --violet-light: #ede9fe;
+
+    --white: #ffffff;
+    --text: #181522;
+    --text-light: #6b6675;
+
+    --border: #e8e3f0;
+
+    --shadow: 0 10px 30px rgba(70, 40, 120, 0.10);
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 5%;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+
+    gap: 30px;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    white-space: nowrap;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--violet);
+}
+
+
+/* SEARCH */
+
+.search-box {
+    flex: 1;
+
+    max-width: 520px;
+
+    height: 44px;
+
+    display: flex;
+
+    background: #f5f2fa;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: var(--violet);
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.10);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 15px;
+
+    font-size: 14px;
+
+    color: var(--text);
+}
+
+.search-box input::placeholder {
+    color: #9a94a4;
+}
+
+.search-box button {
+    width: 50px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.2s;
+}
+
+.search-box button:hover {
+    background: var(--violet-light);
+}
+
+
+/* NAV RIGHT */
+
+.nav-right {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.nav-button {
+    border: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    padding: 10px 13px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.nav-button:hover {
+    background: var(--violet-light);
+
+    color: var(--violet);
+}
+
+
+/* ================= MENU ANIME ================= */
+
+.anime-menu {
+    position: fixed;
+
+    top: 86px;
+
+    right: 5%;
+
+    z-index: 900;
+
+    width: 190px;
+
+    padding: 10px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+
+    display: none;
+}
+
+.anime-menu.show {
+    display: block;
+
+    animation: menuAppear 0.18s ease;
+}
+
+@keyframes menuAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anime-menu button {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    text-align: left;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    color: var(--text);
+
+    font-size: 14px;
+}
+
+.anime-menu button:hover {
+    background: var(--violet-light);
+
+    color: var(--violet);
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 420px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 60px 8%;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(124, 58, 237, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f3efff 100%
+        );
+
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-small {
+    color: var(--violet);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 82px);
+
+    line-height: 0.95;
+
+    font-weight: 900;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--violet);
+}
+
+.hero p:not(.hero-small) {
+    max-width: 570px;
+
+    color: var(--text-light);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+.hero-button {
+    border: none;
+
+    background: var(--violet);
+
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(124, 58, 237, 0.25);
+
+    transition: 0.2s;
+}
+
+.hero-button:hover {
+    background: var(--violet-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= MAIN ================= */
+
+main {
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding: 45px 5%;
+}
+
+
+/* ================= SECTION ================= */
+
+.section {
+    margin-bottom: 55px;
+}
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+
+    font-weight: 850;
+}
+
+.section-label {
+    color: var(--violet);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+#animeCount {
+    color: var(--text-light);
+
+    font-size: 13px;
+}
+
+
+/* ================= ANIME GRID ================= */
+
+.anime-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(190px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ================= ANIME CARD ================= */
+
+.anime-card {
+    position: relative;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(40, 20, 80, 0.06);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.anime-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(124, 58, 237, 0.30);
+
+    box-shadow:
+        0 15px 35px rgba(70, 40, 120, 0.15);
+}
+
+
+/* IMAGE */
+
+.anime-image {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 2 / 3;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee9ff,
+            #f8f7fb
+        );
+
+    overflow: hidden;
+}
+
+.anime-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.anime-card:hover .anime-image img {
+    transform: scale(1.05);
+}
+
+
+/* IMAGE OVERLAY */
+
+.anime-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.38),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+
+/* BADGE */
+
+.anime-badge {
+    position: absolute;
+
+    top: 10px;
+
+    left: 10px;
+
+    z-index: 2;
+
+    background: var(--violet);
+
+    color: white;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* FAVORITE BUTTON */
+
+.card-favorite {
+    position: absolute;
+
+    top: 9px;
+
+    right: 9px;
+
+    z-index: 5;
+
+    width: 34px;
+
+    height: 34px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.card-favorite:hover {
+    transform: scale(1.08);
+
+    background: white;
+}
+
+
+/* CARD CONTENT */
+
+.anime-card-content {
+    padding: 15px;
+}
+
+.anime-card-title {
+    font-size: 16px;
+
+    font-weight: 800;
+
+    margin-bottom: 7px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.anime-card-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 12px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+.anime-rating {
+    color: #f59e0b;
+
+    font-weight: 700;
+}
+
+.anime-card-description {
+    color: var(--text-light);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    height: 36px;
+
+    overflow: hidden;
+
+    margin-bottom: 14px;
+}
+
+
+/* WATCH BUTTON */
+
+.watch-card-button {
+    width: 100%;
+
+    border: none;
+
+    background: var(--violet);
+
+    color: white;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.watch-card-button:hover {
+    background: var(--violet-dark);
+}
+
+
+/* ================= EMPTY RESULT ================= */
+
+.no-results {
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+}
+
+.no-results > div {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.no-results h3 {
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.no-results p {
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(20, 12, 35, 0.65);
+
+    backdrop-filter: blur(7px);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-box {
+    position: relative;
+
+    width: min(900px, 100%);
+
+    max-height: 90vh;
+
+    overflow: auto;
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.25);
+
+    animation: modalAppear 0.25s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* MODAL IMAGE */
+
+.modal-image {
+    min-height: 420px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9e3ff,
+            #f8f7fb
+        );
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+/* MODAL CONTENT */
+
+.modal-content {
+    padding: 45px 35px;
+}
+
+.modal-genre {
+    display: inline-block;
+
+    color: var(--violet);
+
+    background: var(--violet-light);
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.modal-content h2 {
+    font-size: 34px;
+
+    margin-bottom: 18px;
+}
+
+.modal-description {
+    color: var(--text-light);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 22px;
+}
+
+.modal-info {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.modal-info span {
+    padding: 7px 10px;
+
+    background: #f6f3fa;
+
+    border-radius: 7px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+
+/* CLOSE */
+
+.close-button {
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    z-index: 10;
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+/* ACTIONS */
+
+.modal-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.watch-button,
+.favorite-button {
+    border: none;
+
+    padding: 12px 17px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.watch-button {
+    background: var(--violet);
+
+    color: white;
+}
+
+.watch-button:hover {
+    background: var(--violet-dark);
+}
+
+.favorite-button {
+    background: var(--violet-light);
+
+    color: var(--violet-dark);
+}
+
+.favorite-button:hover {
+    background: #ddd6fe;
+}
+
+
+/* ================= AUTHORIZATION MODAL ================= */
+
+.authorization-box {
+    width: min(480px, 100%);
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.25);
+
+    animation: modalAppear 0.25s ease;
+}
+
+.authorization-icon {
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    background: var(--violet-light);
+
+    border-radius: 50%;
+
+    font-size: 30px;
+}
+
+.authorization-box h2 {
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.authorization-box p {
+    color: var(--text-light);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+.authorization-box .watch-button {
+    margin-top: 15px;
+
+    min-width: 120px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    margin-top: 40px;
+
+    padding: 40px 5%;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-light);
+}
+
+.footer-logo {
+    font-size: 24px;
+
+    font-weight: 900;
+
+    color: var(--text);
+
+    margin-bottom: 8px;
+}
+
+.footer-logo span {
+    color: var(--violet);
+}
+
+footer p {
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+footer .copyright {
+    font-size: 11px;
+
+    color: #aaa4b2;
+
+    margin-top: 15px;
+}
+
+
+/* ================= UTILITIES ================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= RESPONSIVE TABLET ================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        gap: 15px;
+
+        padding: 0 3%;
+    }
+
+    .nav-right {
+        gap: 3px;
+    }
+
+    .nav-button {
+        padding: 9px 8px;
+    }
+
+    .hero {
+        padding: 55px 6%;
+    }
+
+    .anime-grid {
+        grid-template-columns:
+            repeat(auto-fill, minmax(170px, 1fr));
+
+        gap: 17px;
+    }
+
+    .modal-box {
+        grid-template-columns: 230px 1fr;
+    }
+}
+
+
+/* ================= RESPONSIVE MOBILE ================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 70px;
+
+        padding: 12px 4%;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .search-box {
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+    }
+
+    .nav-right {
+        margin-left: auto;
+    }
+
+    .nav-button {
+        font-size: 12px;
+
+        padding: 8px 7px;
+    }
+
+    .hero {
+        min-height: 390px;
+
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero p:not(.hero-small) {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 35px 4%;
+    }
+
+    .section-title h2 {
+        font-size: 23px;
+    }
+
+    .anime-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 13px;
+    }
+
+    .anime-card-content {
+        padding: 11px;
+    }
+
+    .anime-card-title {
+        font-size: 14px;
+    }
+
+    .anime-card-description {
+        font-size: 11px;
+    }
+
+    .watch-card-button {
+        padding: 9px 5px;
+
+        font-size: 11px;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-box {
+        display: block;
+
+        max-height: 94vh;
+    }
+
+    .modal-image {
+        height: 280px;
+
+        min-height: 280px;
+    }
+
+    .modal-content {
+        padding: 25px 20px 30px;
+    }
+
+    .modal-content h2 {
+        font-size: 27px;
+    }
+
+    .authorization-box {
+        padding: 35px 22px;
+    }
+}
+
+
+/* ================= VERY SMALL PHONES ================= */
+
+@media (max-width: 380px) {
+
+    .anime-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 9px;
+    }
+
+    .anime-card-content {
+        padding: 9px;
+    }
+
+    .anime-card-title {
+        font-size: 13px;
+    }
+
+    .card-favorite {
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 13px;
+    }
+
+    .anime-badge {
+        font-size: 9px;
+
+        padding: 4px 6px;
+    }
+}/* =========================================================
+   COMPTES + MODE CLAIR / NOCTURNE
+   ========================================================= */
+
+
+/* ================= MODE NOCTURNE ================= */
+
+body.dark-mode {
+    --white: #171321;
+    --text: #f5f3fa;
+    --text-light: #aaa4b8;
+    --border: #30293d;
+
+    background: #0d0a13;
+    color: var(--text);
+}
+
+body.dark-mode .navbar {
+    background: rgba(20, 16, 28, 0.96);
+}
+
+body.dark-mode .search-box {
+    background: #211c2b;
+}
+
+body.dark-mode .search-box input {
+    color: #ffffff;
+}
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(124, 58, 237, 0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #15111e 0%,
+            #211936 100%
+        );
+}
+
+body.dark-mode .anime-card,
+body.dark-mode .no-results,
+body.dark-mode footer,
+body.dark-mode .modal-box,
+body.dark-mode .authorization-box,
+body.dark-mode .account-box,
+body.dark-mode .anime-menu {
+    background: #171321;
+    border-color: #30293d;
+}
+
+body.dark-mode .anime-card-content {
+    color: #ffffff;
+}
+
+body.dark-mode .modal-info span {
+    background: #211c2b;
+}
+
+body.dark-mode .favorite-button {
+    background: #2b2140;
+}
+
+body.dark-mode footer {
+    color: #aaa4b8;
+}
+
+
+/* ================= BOUTON THÈME ================= */
+
+#themeButton {
+    min-width: 42px;
+
+    font-size: 18px;
+
+    padding: 9px;
+}
+
+
+/* ================= COMPTE ================= */
+
+.account-box {
+    position: relative;
+
+    width: min(430px, 100%);
+
+    padding: 38px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+
+    animation: modalAppear 0.25s ease;
+}
+
+.account-icon {
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--violet-light);
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+.account-box h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.account-subtitle {
+    color: var(--text-light);
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+/* CHAMPS */
+
+.account-box input {
+    width: 100%;
+
+    height: 46px;
+
+    margin-bottom: 12px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #f7f5fa;
+
+    color: #181522;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.account-box input:focus {
+    border-color: var(--violet);
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.10);
+}
+
+body.dark-mode .account-box input {
+    background: #211c2b;
+
+    color: #ffffff;
+
+    border-color: #393044;
+}
+
+
+/* BOUTON COMPTE */
+
+.account-button {
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--violet);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.account-button:hover {
+    background: var(--violet-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* MESSAGE */
+
+.account-message {
+    min-height: 20px;
+
+    margin-top: 14px;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* NOM UTILISATEUR CONNECTÉ */
+
+.user-connected {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--violet);
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    background: var(--violet-light);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 650px) {
+
+    .account-box {
+        padding: 32px 20px;
+    }
+
+    .account-box h2 {
+        font-size: 24px;
+    }
+
+    #themeButton {
+        min-width: 38px;
+    }
+}

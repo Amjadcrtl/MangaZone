@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MangaZone</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span>Manga</span>Zone
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Rechercher un anime..."
+                autocomplete="off"
+            >
+            <button id="searchButton">🔎</button>
+        </div>
+
+       <div class="nav-right">
+
+    <button id="themeButton" class="nav-button">
+        🌙
+    </button>
+
+    <button id="loginButton" class="nav-button">
+        🔐 Connexion
+    </button>
+
+    <button id="registerButton" class="nav-button">
+        📝 Inscription
+    </button>
+
+    <button id="logoutButton" class="nav-button hidden">
+        🚪 Déconnexion
+    </button>
+
+    <button id="animeMenuButton" class="nav-button">
+        Anime ▾
+    </button>
+
+    <button id="favoritesButton" class="nav-button">
+        ❤️ Favoris
+    </button>
+
+</div>
+
+    </header>
+
+
+    <!-- ================= MENU ANIME ================= -->
+    <div id="animeMenu" class="anime-menu">
+
+        <button data-filter="all">Tous les anime</button>
+        <button data-filter="action">Action</button>
+        <button data-filter="aventure">Aventure</button>
+        <button data-filter="fantasy">Fantasy</button>
+        <button data-filter="sport">Sport</button>
+
+    </div>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                BIENVENUE SUR
+            </p>
+
+            <h1>
+                Manga<span>Zone</span>
+            </h1>
+
+            <p>
+                Découvre les anime modernes, leurs informations
+                et leur disponibilité sur MangaZone.
+            </p>
+
+            <button
+                class="hero-button"
+                onclick="scrollToAnime()"
+            >
+                Découvrir les anime
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENU ================= -->
+    <main>
+
+        <!-- CONTINUER -->
+        <section id="continueSection" class="section hidden">
+
+            <div class="section-title">
+                <h2>▶ Continuer</h2>
+            </div>
+
+            <div
+                id="continueGrid"
+                class="anime-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- FAVORIS -->
+        <section id="favoritesSection" class="section hidden">
+
+            <div class="section-title">
+
+                <h2>❤️ Mes favoris</h2>
+
+                <button
+                    id="closeFavorites"
+                    class="small-button"
+                >
+                    Fermer
+                </button>
+
+            </div>
+
+            <div
+                id="favoritesGrid"
+                class="anime-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- CATALOGUE -->
+        <section
+            id="animeSection"
+            class="section"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <p class="section-label">
+                        CATALOGUE
+                    </p>
+
+                    <h2>
+                        Anime modernes
+                    </h2>
+                </div>
+
+                <span id="animeCount">
+                    10 anime
+                </span>
+
+            </div>
+
+
+            <div
+                id="animeGrid"
+                class="anime-grid"
+            ></div>
+
+
+            <!-- Aucun résultat -->
+            <div
+                id="noResults"
+                class="no-results hidden"
+            >
+                <div>🔎</div>
+
+                <h3>
+                    Aucun anime trouvé
+                </h3>
+
+                <p>
+                    Essaie avec un autre nom ou une autre catégorie.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+<!-- ================= MODAL CONNEXION ================= -->
+
+<div id="loginModal" class="modal hidden">
+
+    <div class="account-box">
+
+        <button id="closeLogin" class="close-button">
+            ✕
+        </button>
+
+        <div class="account-icon">
+            🔐
+        </div>
+
+        <h2>Connexion</h2>
+
+        <p class="account-subtitle">
+            Connecte-toi à ton compte MangaZone
+        </p>
+
+        <input
+            type="text"
+            id="loginUsername"
+            placeholder="Nom d'utilisateur"
+            autocomplete="username"
+        >
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Mot de passe"
+            autocomplete="current-password"
+        >
+
+        <button id="submitLogin" class="account-button">
+            Se connecter
+        </button>
+
+        <p id="loginMessage" class="account-message"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MODAL INSCRIPTION ================= -->
+
+<div id="registerModal" class="modal hidden">
+
+    <div class="account-box">
+
+        <button id="closeRegister" class="close-button">
+            ✕
+        </button>
+
+        <div class="account-icon">
+            📝
+        </div>
+
+        <h2>Inscription</h2>
+
+        <p class="account-subtitle">
+            Crée ton compte MangaZone
+        </p>
+
+        <input
+            type="text"
+            id="registerUsername"
+            placeholder="Nom d'utilisateur"
+            autocomplete="username"
+        >
+
+        <input
+            type="email"
+            id="registerEmail"
+            placeholder="Adresse e-mail"
+            autocomplete="email"
+        >
+
+        <input
+            type="password"
+            id="registerPassword"
+            placeholder="Mot de passe"
+            autocomplete="new-password"
+        >
+
+        <button id="submitRegister" class="account-button">
+            Créer mon compte
+        </button>
+
+        <p id="registerMessage" class="account-message"></p>
+
+    </div>
+
+</div>
+
+    <!-- ================= MODAL DETAILS ================= -->
+
+    <div
+        id="animeModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-box">
+
+            <button
+                id="closeModal"
+                class="close-button"
+            >
+                ✕
+            </button>
+
+
+            <div
+                id="modalImage"
+                class="modal-image"
+            ></div>
+
+
+            <div class="modal-content">
+
+                <p
+                    id="modalGenre"
+                    class="modal-genre"
+                >
+                </p>
+
+                <h2 id="modalTitle">
+                </h2>
+
+                <p
+                    id="modalDescription"
+                    class="modal-description"
+                >
+                </p>
+
+
+                <div class="modal-info">
+
+                    <span id="modalYear">
+                    </span>
+
+                    <span id="modalStatus">
+                    </span>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        id="watchButton"
+                        class="watch-button"
+                    >
+                        ▶ Regarder
+                    </button>
+
+                    <button
+                        id="favoriteButton"
+                        class="favorite-button"
+                    >
+                        ❤️ Ajouter aux favoris
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL AUTORISATION ================= -->
+
+    <div
+        id="authorizationModal"
+        class="modal hidden"
+    >
+
+        <div class="authorization-box">
+
+            <div class="authorization-icon">
+                🔐
+            </div>
+
+            <h2>
+                Autorisation en cours
+            </h2>
+
+            <p>
+                Cet anime n'est pas encore disponible
+                sur MangaZone.
+            </p>
+
+            <p>
+                Nous devons obtenir les autorisations
+                nécessaires avant de pouvoir proposer
+                sa diffusion.
+            </p>
+
+            <button
+                id="closeAuthorization"
+                class="watch-button"
+            >
+                Compris
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Manga<span>Zone</span>
+        </div>
+
+        <p>
+            Catalogue anime • MangaZone
+        </p>
+
+        <p class="copyright">
+            © 2026 MangaZone
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
