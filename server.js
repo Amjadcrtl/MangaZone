@@ -32,12 +32,7 @@ const USERS_FILE = path.join(DATA_DIR, "users.json");
 /* =========================================================
    SÉCURITÉ DE CONFIGURATION
 ========================================================= */
-const JWT_SECRET = process.env.JWT_SECRET;
-if (!JWT_SECRET) {
-  console.error("❌ ERREUR : JWT_SECRET n'est pas configuré.");
-  console.error("Ajoute JWT_SECRET dans les variables Railway.");
-  process.exit(1);
-}
+
 
 /* =========================================================
    INITIALISATION DU DOSSIER DE DONNÉES
