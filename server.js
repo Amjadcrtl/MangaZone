@@ -1,11 +1,21 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const rateLimit = require("express-rate-limit");
 const fs = require("fs");
 const path = require("path");
 
 const app = express();
-
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    success: false,
+    message: "Trop de tentatives. Réessaie plus tard."
+  }
+});
 /* =========================================================
    CONFIGURATION
 ========================================================= */
@@ -225,7 +235,7 @@ app.get("/", (req, res) => {
    POST /api/register
 ========================================================= */
 
-app.post("/api/register", async (req, res) => {
+app.post("/api/register", registerLimiter, async (req, res) => {
   try {
     const username =
       typeof req.body.username === "string"
@@ -370,7 +380,17 @@ app.post("/api/register", async (req, res) => {
    POST /api/login
 ========================================================= */
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", authLimiter, async (req, res) => {
+const registerLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    success: false,
+    message: "Trop de créations de comptes. Réessaie plus tard."
+  }
+});
   try {
     const username =
       typeof req.body.username === "string"
